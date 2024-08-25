@@ -7,8 +7,10 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Header />
-      <Main />
+      <div className="todos-section">
+        <Header />
+        <Main />
+      </div>
       <Footer />
     </>
   );
