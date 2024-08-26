@@ -1,11 +1,11 @@
 import "./main.css";
-import TodoList from "../todo-list/TodoList";
-const main = () => {
+import Wrapper from "../todo-list/TodoWrapper";
+function main() {
   return (
     <main className="main container">
-      <TodoList />
+      <Wrapper />
     </main>
   );
-};
+}
 
 export default main;
