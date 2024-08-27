@@ -14,7 +14,7 @@ export const missioni: Todo[] = [
     {
       id: 3,
       titolo: "Neutralizza il virus",
-      completata: false
+      completata: true
     }
   ];
   
