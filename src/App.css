@@ -3,11 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-ul, li, menu {
-  list-style: none;
+ul {
+  padding: 0 !important;
 }
-
 #root {
   display: flex;
   flex-direction: column;
@@ -17,5 +15,10 @@ ul, li, menu {
   min-height: 100vh;
 
   background-color: #fdf0e7;
-  padding: 30px
+  padding: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+.main {
+  width: 80vw
 }

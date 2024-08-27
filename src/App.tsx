@@ -1,17 +1,48 @@
-import "./App.css";
-import TodoItem from "./components/TodoItem";
+import { useState } from "react";
 import { missioni } from "./data/todos";
+import "./App.css";
+import AddTodoForm from "./components/AddTodoForm";
+import TodoList from "./components/TodoList";
 
 function App() {
+  const [todos, setTodos] = useState(missioni);
+
+  function setTaskCompleted(id: number, completata: boolean) {
+    // alert(
+    //   `Todo with id ${id} is now ${
+    //     completata ? "completata" : "non completata"
+    //   } `
+    // );
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => (todo.id === id ? { ...todo, completata } : todo))
+    );
+  }
+
+  function addNewTodo(titolo: string) {
+    setTodos((prevTodos) => [
+      {
+        id: prevTodos.length + 1,
+        titolo,
+        completata: false,
+      },
+      ...prevTodos,
+    ]);
+  }
+  function deleteTodo(id: number) {
+    const filtered = todos.filter((todo) => todo.id !== id);
+    setTodos(filtered);
+  }
+
   return (
-    <main>
-      <h1>My todos</h1>
+    <main className="main">
+      <h1 className="text-center">My todos</h1>
       <div>
-        <ul>
-          {missioni.map((todo) => (
-            <TodoItem todo={todo} />
-          ))}
-        </ul>
+        <AddTodoForm onSubmit={addNewTodo} />
+        <TodoList
+          todosArr={todos}
+          onCompletedChange={setTaskCompleted}
+          deleteThis={deleteTodo}
+        />
       </div>
     </main>
   );
