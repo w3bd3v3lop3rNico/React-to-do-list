@@ -3,6 +3,7 @@ import { missioni } from "./data/todos";
 import "./App.css";
 import AddTodoForm from "./components/AddTodoForm";
 import TodoList from "./components/TodoList";
+import TodoSummary from "./components/TodoSummary";
 
 function App() {
   const [todos, setTodos] = useState(missioni);
@@ -33,6 +34,10 @@ function App() {
     setTodos(filtered);
   }
 
+  function deleteCompleted() {
+    setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completata));
+  }
+
   return (
     <main className="main">
       <h1 className="text-center">My todos</h1>
@@ -44,6 +49,7 @@ function App() {
           deleteThis={deleteTodo}
         />
       </div>
+      <TodoSummary todos={todos} deleteAllCompleted={deleteCompleted} />
     </main>
   );
 }
