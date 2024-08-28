@@ -1,11 +1,8 @@
 import TodoItem from "./TodoItem";
 import { Todo } from "../types/todo";
 
-// Errore typescript in props
-
 interface TodoListProps {
-  todosArr: Todos[];
-  todoObj: Todo;
+  todosArr: Todo[];
   onCompletedChange: (id: number, completata: boolean) => void;
   deleteThis: (id: number) => void;
 }
@@ -15,7 +12,7 @@ export default function TodoList({
   onCompletedChange,
   deleteThis,
 }: TodoListProps) {
-  const todosSorted = todosArr.sort((a: Todo, b: Todo) => {
+  const todosSorted = todosArr.sort((a, b) => {
     if (a.completata === b.completata) {
       return b.id - a.id;
     }
