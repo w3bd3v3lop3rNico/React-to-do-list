@@ -22,3 +22,8 @@ ul {
 .main {
   width: 80vw
 }
+
+.section {
+  max-height: 500px;
+  overflow: hidden;
+}

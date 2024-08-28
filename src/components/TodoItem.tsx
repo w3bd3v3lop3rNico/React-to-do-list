@@ -13,7 +13,7 @@ export default function TodoItem({
   deleteThis,
 }: TodoItemProps) {
   return (
-    <li className="d-flex align-items-center column-gap-2 bg-info-subtle mb-3 p-3 rounded w-50">
+    <li className="d-flex align-items-center column-gap-2 bg-info-subtle p-3 rounded w-100 mb-2">
       <input
         type="checkbox"
         key={todoObj.id}

@@ -17,7 +17,7 @@ export default function AddTodoForm({ onSubmit }: AddTodoFormProps) {
   }
 
   return (
-    <form className="d-flex mb-3" onSubmit={handleSubmit}>
+    <form className="d-flex mb-3 w-100" onSubmit={handleSubmit}>
       <input
         type="text"
         value={input}

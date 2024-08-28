@@ -22,19 +22,18 @@ export default function TodoList({
     return a.completata ? 1 : -1;
   });
   return (
-    <ul
-      className={
-        "bg-secondary pt-4 pb-1 px-2 rounded mb-3 fs-3 d-flex flex-column align-items-center"
-      }
-    >
-      {todosSorted.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todoObj={todo}
-          onCompletedChange={onCompletedChange}
-          deleteThis={deleteThis}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className={"w-100 m-0"}>
+        {todosSorted.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todoObj={todo}
+            onCompletedChange={onCompletedChange}
+            deleteThis={deleteThis}
+          />
+        ))}
+      </ul>
+      {todosArr.length === 0 && <p>No todo found. Add a new!</p>}
+    </>
   );
 }
