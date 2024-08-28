@@ -1,43 +1,12 @@
-import { useState } from "react";
-import { missioni } from "./data/todos";
 import "./App.css";
 import AddTodoForm from "./components/AddTodoForm";
 import TodoList from "./components/TodoList";
 import TodoSummary from "./components/TodoSummary";
+import useTodos from "./hooks/useTodos";
 
 function App() {
-  const [todos, setTodos] = useState(missioni);
-
-  function setTaskCompleted(id: number, completata: boolean) {
-    // alert(
-    //   `Todo with id ${id} is now ${
-    //     completata ? "completata" : "non completata"
-    //   } `
-    // );
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) => (todo.id === id ? { ...todo, completata } : todo))
-    );
-  }
-
-  function addNewTodo(titolo: string) {
-    setTodos((prevTodos) => [
-      {
-        id: prevTodos.length + 1,
-        titolo,
-        completata: false,
-      },
-      ...prevTodos,
-    ]);
-  }
-  function deleteTodo(id: number) {
-    const filtered = todos.filter((todo) => todo.id !== id);
-    setTodos(filtered);
-  }
-
-  function deleteCompleted() {
-    setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completata));
-  }
-
+  const { todos, setTaskCompleted, addNewTodo, deleteTodo, deleteCompleted } =
+    useTodos();
   return (
     <main className="main">
       <h1 className="text-center">My todos</h1>
